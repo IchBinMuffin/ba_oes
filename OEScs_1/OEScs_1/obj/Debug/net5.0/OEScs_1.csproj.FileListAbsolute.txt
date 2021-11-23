@@ -1,0 +1,16 @@
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\bin\Debug\net5.0\OEScs_1.exe
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\bin\Debug\net5.0\OEScs_1.deps.json
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\bin\Debug\net5.0\OEScs_1.runtimeconfig.json
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\bin\Debug\net5.0\OEScs_1.runtimeconfig.dev.json
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\bin\Debug\net5.0\OEScs_1.dll
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\bin\Debug\net5.0\ref\OEScs_1.dll
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\bin\Debug\net5.0\OEScs_1.pdb
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\obj\Debug\net5.0\OEScs_1.csproj.AssemblyReference.cache
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\obj\Debug\net5.0\OEScs_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\obj\Debug\net5.0\OEScs_1.AssemblyInfoInputs.cache
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\obj\Debug\net5.0\OEScs_1.AssemblyInfo.cs
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\obj\Debug\net5.0\OEScs_1.csproj.CoreCompileInputs.cache
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\obj\Debug\net5.0\OEScs_1.dll
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\obj\Debug\net5.0\ref\OEScs_1.dll
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\obj\Debug\net5.0\OEScs_1.pdb
+C:\Users\Muffin\Documents\Dokumente\Studium\9. Semester\Bachelorarbeit\Repo Simulatoren\ba_oes\OEScs_1\OEScs_1\obj\Debug\net5.0\OEScs_1.genruntimeconfig.cache
