@@ -32,6 +32,9 @@ namespace OEScs_1
         private Dictionary<string, double> v;
         private Dictionary<Object, int> f;
 
+        Time time;
+        public Time TimeProp => time;
+
         public void SetUpStatistics()
         {
             

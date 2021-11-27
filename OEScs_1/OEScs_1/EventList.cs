@@ -54,5 +54,10 @@ namespace OEScs_1
 
             return nextEvents;
         }
+
+        public void Clear()
+        {
+            events.Clear();
+        }
     }
 }
