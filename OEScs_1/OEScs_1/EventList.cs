@@ -10,6 +10,8 @@ namespace OEScs_1
     {
         private List<Event> events;
 
+        public List<Event> Events => events;
+
         public EventList()
         {
             events = new List<Event>();
@@ -55,9 +57,11 @@ namespace OEScs_1
             return nextEvents;
         }
 
+        /* Leert eine Liste mit Events
         public void Clear()
         {
             events.Clear();
-        }
+        }*/
+
     }
 }

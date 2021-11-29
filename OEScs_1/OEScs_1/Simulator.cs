@@ -38,17 +38,18 @@ namespace OEScs_1
             }
         }
 
-        //  Initialisieren einen Szenario Durchlauf
+        // Initialisieren einen Szenario Durchlauf
         public void InitializeScenarioRun()
         {
             this.objects.Clear();
-            this.FEL.Clear();
+            this.FEL.Events.Clear();
             this.step = 0;
             this.time = 0.0;
             
             // TODO Scenario beenden und dann diese Funktion
         }
 
+        // Inkrementieren der Simulationszeit
         public void AdvanceSimulationTime()
         {
             // 0.0 wenn kein Event
@@ -62,9 +63,38 @@ namespace OEScs_1
             
         }
 
+        // Ausführen eines Szenarios einer Simulation
         public void RunScenario()
         {
+            while (this.time < this.endTime && this.FEL.Events.Count > 0)
+            {
+                this.AdvanceSimulationTime();
 
+                List<Event> upcomingEvents = this.FEL.RemoveNextEvents();
+                Event e;
+
+                for (// TODO e : upcomingEvents)
+                {
+
+                    /* Der ternäre Operator besteht aus drei Segmenten. 
+                     * Der erste ist ein bedingter Ausdruck, 
+                     * der einen booleschen Wert zurückgibt. 
+                     * Der zweite und dritte Wert sind die Werte vor und nach dem 
+                     * Doppelpunkt. Es gibt den Wert vor dem Doppelpunkt zurück, 
+                     * wenn der bedingte Ausdruck als true ausgewertet wird. 
+                     * Andernfalls wird der Wert nach zurückgegeben. 
+                     * Die Syntax ist unten.*/
+
+                }
+            }
+        }
+
+        // Ausführen eines Standalone Szenarios
+        public void runStandaloneScenario()
+        {
+            this.InitializeSimulator();
+            this.InitializeScenarioRun();
+            this.RunScenario();
         }
 
         public void RunExperiment()
