@@ -9,6 +9,7 @@ namespace OEScs_1
     abstract class Event
     {
         private double occTime;
+
         public double OccTime => occTime;
 
         public Event(double occTime)
@@ -16,10 +17,11 @@ namespace OEScs_1
             this.occTime = occTime;
         }
 
+        public abstract List<Event> OnEvent();
+
         public override string ToString()
         {
             return $"occTime: {occTime}";
         }
-        public abstract List<Event> OnEvent();
     }
 }

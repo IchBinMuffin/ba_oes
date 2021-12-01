@@ -21,7 +21,7 @@ namespace OEScs_1
         private Scenario scenario = new Scenario();
         private Model model;
         private ExperimentType experimentType;
-        private EventList FEL = new EventList();
+        private EventList FEL = new EventList(); // FEL - Future Event List
 
         public Dictionary<int, Object> Objects => objects;
         public Scenario Scenario => scenario;
@@ -70,23 +70,26 @@ namespace OEScs_1
             {
                 this.AdvanceSimulationTime();
 
-                List<Event> upcomingEvents = this.FEL.RemoveNextEvents();
-                Event e;
+                List<Event> nextEvents = this.FEL.RemoveNextEvents();        
 
-                for (// TODO e : upcomingEvents)
+                for (int i = 0; i < nextEvents.Count(); i++)
                 {
+                    Event e = nextEvents[i];
+                    List<Event> followUpEvents = e.OnEvent();
 
-                    /* Der ternäre Operator besteht aus drei Segmenten. 
-                     * Der erste ist ein bedingter Ausdruck, 
-                     * der einen booleschen Wert zurückgibt. 
-                     * Der zweite und dritte Wert sind die Werte vor und nach dem 
-                     * Doppelpunkt. Es gibt den Wert vor dem Doppelpunkt zurück, 
-                     * wenn der bedingte Ausdruck als true ausgewertet wird. 
-                     * Andernfalls wird der Wert nach zurückgegeben. 
-                     * Die Syntax ist unten.*/
+                    for (int j = 0; j < followUpEvents.Count(); j++)
+                    {
+                        Event f = followUpEvents[j];
+                        this.FEL.Add(f);
+                    }
 
+                    // Prüfen, ob e ein ExogenousEvent ist 
+                    if (e.GetType() == typeof(ExogenousEvent)) this.FEL.Add(((ExogenousEvent)e).NextEvent());
                 }
             }
+
+            //if ( TODO computeFinalStatistcs in Model is Consumer<>...)
+                 
         }
 
         // Ausführen eines Standalone Szenarios
@@ -97,9 +100,16 @@ namespace OEScs_1
             this.RunScenario();
         }
 
-        public void RunExperiment()
-        {
+        // Ausführen eines simplen Experiments
+        public void RunExperiment(ExperimentType exp)
+        { 
+            this.InitializeSimulator();
 
+            // TODO hier auch irgendwas mit Consumer<>...
+            if (this.model.SetUpStatistics() != null) this.model.SetUpStatistics();
+            {
+
+            }
         }
 
     }

@@ -9,7 +9,6 @@ namespace OEScs_1
     class EventList
     {
         private List<Event> events;
-
         public List<Event> Events => events;
 
         public EventList()

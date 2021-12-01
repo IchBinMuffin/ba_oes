@@ -28,9 +28,10 @@ namespace OEScs_1
             this.sim.Objects.Add(this.id, this);
         }
 
+        /*
         public override string ToString()
         {
             return $"id: {id}, name: {name}";
-        }
+        }*/
     }
 }

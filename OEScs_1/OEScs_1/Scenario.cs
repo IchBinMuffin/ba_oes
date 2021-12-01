@@ -17,7 +17,11 @@ namespace OEScs_1
         public int IdCounter => idCounter;
         public double DurationInSimTime => durationInSimTime;
 
-        // Consumer<Simulator>... -> Represents an operation that accepts a single input argument and returns no result. Unlike most other functional interfaces, Consumer is expected to operate via side-effects. 
+        /* Consumer<Simulator>... -> 
+         * Represents an operation that accepts a single input argument 
+         * and returns no result. Unlike most other functional interfaces, 
+         * #Consumer is expected to operate via side-effects. */
+
         public void SetUpInitialState()
         {
 
