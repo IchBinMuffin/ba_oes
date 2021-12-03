@@ -35,14 +35,10 @@ namespace OEScs_1
         Time time;
         public Time TimeProp => time;
 
-        public void SetUpStatistics()
-        {
-            
-        }
+        private Action<Simulator> SetUpStatistics;
+        public Action<Simulator> GetSetUpStatistics => SetUpStatistics;
 
-        public void ComputeFinalStatistics()
-        {
-
-        }
+        private Action<Simulator> ComputeFinalStatistics;
+        public Action<Simulator> GetComputeFinalStatistics => ComputeFinalStatistics;
     }
 }

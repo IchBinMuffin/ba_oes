@@ -45,8 +45,30 @@ namespace OEScs_1
             this.FEL.Events.Clear();
             this.step = 0;
             this.time = 0.0;
-            
-            // TODO Scenario beenden und dann diese Funktion
+
+            // setzen der standard Endzeit
+            if (this.scenario.DurationInSimTime > 0.0)
+            {
+                this.endTime = this.scenario.DurationInSimTime;
+            }
+            else
+            {
+                this.endTime = double.MaxValue;
+            }
+
+            // setzen eines standard Wertes für idCounter, falls keine ID vom Szenario
+            if (this.scenario.IdCounter > 0)
+            {
+                this.idCounter = this.scenario.IdCounter;
+            }
+            else
+            {
+                this.idCounter = 1000;
+            }
+
+            // Aufsetzen des initialen Zustands
+            if (this.scenario.GetSetUpInitialState != null) this.scenario.GetSetUpInitialState.Invoke(this);
+            if (this.model.GetSetUpStatistics != null) this.model.GetSetUpStatistics.Invoke(this);
         }
 
         // Inkrementieren der Simulationszeit
