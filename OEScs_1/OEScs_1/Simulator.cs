@@ -26,6 +26,7 @@ namespace OEScs_1
         public Dictionary<int, Object> Objects => objects;
         public Scenario Scenario => scenario;
 
+
         // Initialisieren des Simulators
         public void InitializeSimulator()
         {
@@ -37,6 +38,7 @@ namespace OEScs_1
                 this.nextMomentDeltaT = 2L;
             }
         }
+
 
         // Initialisieren einen Szenario Durchlauf
         public void InitializeScenarioRun()
@@ -71,6 +73,7 @@ namespace OEScs_1
             if (this.model.GetSetUpStatistics != null) this.model.GetSetUpStatistics.Invoke(this);
         }
 
+
         // Inkrementieren der Simulationszeit
         public void AdvanceSimulationTime()
         {
@@ -84,6 +87,7 @@ namespace OEScs_1
             if (this.nextEventTime > 0) this.time = this.nextEventTime;
             
         }
+
 
         // Ausführen eines Szenarios einer Simulation
         public void RunScenario()
@@ -99,6 +103,9 @@ namespace OEScs_1
                     Event e = nextEvents[i];
                     List<Event> followUpEvents = e.OnEvent();
 
+                    /*  for (eVENT f : followUpEvents) {
+		                 this.FEL.add(f); }
+		            */
                     for (int j = 0; j < followUpEvents.Count(); j++)
                     {
                         Event f = followUpEvents[j];
@@ -110,9 +117,10 @@ namespace OEScs_1
                 }
             }
 
-            //if ( TODO computeFinalStatistcs in Model is Consumer<>...)
+            if (this.model.GetComputeFinalStatistics != null) this.model.GetComputeFinalStatistics.Invoke(this);       
                  
         }
+
 
         // Ausführen eines Standalone Szenarios
         public void runStandaloneScenario()
@@ -122,16 +130,15 @@ namespace OEScs_1
             this.RunScenario();
         }
 
+
         // Ausführen eines simplen Experiments
         public void RunExperiment(ExperimentType exp)
         { 
             this.InitializeSimulator();
 
-            // TODO hier auch irgendwas mit Consumer<>...
-            if (this.model.SetUpStatistics() != null) this.model.SetUpStatistics();
-            {
-
-            }
+            if (this.model.GetComputeFinalStatistics != null) this.model.GetComputeFinalStatistics.Invoke(this);
+            
+            // TODO Funktion beenden und dann mit Arrival und Departure weitermachen
         }
 
     }
