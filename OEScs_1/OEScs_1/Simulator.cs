@@ -16,9 +16,9 @@ namespace OEScs_1
         private long nextMomentDeltaT = 1L;
         private double nextEventTime = 0.0;
 
-        // Directionarys
-        private Dictionary<string, double> stat = new Dictionary<string, double>(); // Directionary für statistische Daten
-        private Dictionary<int, Object> objects = new Dictionary<int, Object>(); // Directionary mit allen Objekten (erreichbar durch ID)
+        // Dictionarys
+        private Dictionary<string, double> stat = new Dictionary<string, double>(); // Dictionary für statistische Daten
+        private Dictionary<int, Object> objects = new Dictionary<int, Object>(); // Dictionary mit allen Objekten (erreichbar durch ID)
 
         // Klassen
         private Scenario scenario = new Scenario();
@@ -73,8 +73,8 @@ namespace OEScs_1
             }
 
             // Aufsetzen des initialen Zustands
-            if (this.scenario.GetSetUpInitialState != null) this.scenario.GetSetUpInitialState.Invoke(this);
-            if (this.model.GetSetUpStatistics != null) this.model.GetSetUpStatistics.Invoke(this);
+            this.scenario.GetSetUpInitialState?.Invoke(this);
+            this.model.GetSetUpStatistics?.Invoke(this);
         }
 
 
@@ -121,7 +121,7 @@ namespace OEScs_1
                 }
             }
 
-            if (this.model.GetComputeFinalStatistics != null) this.model.GetComputeFinalStatistics.Invoke(this);       
+            this.model.GetComputeFinalStatistics?.Invoke(this);       
                  
         }
 
@@ -143,10 +143,11 @@ namespace OEScs_1
             if (this.model.GetSetUpStatistics != null) this.model.GetSetUpStatistics.Invoke(this);
 
             exp.ReplicStat.Clear();
-            for (int i = 0; i < this.stat.Keys.Count; i++)
+
+
+            foreach (string key in this.stat.Keys)
             {
-                String varName = this.stat.Keys.;
-                exp.ReplicStat.Add(varName, new double[exp.NmrOfReplications]);
+                exp.ReplicStat.Add(key, new double[exp.NmrOfReplications]);
             }
 
             // Ausführen der Experiment Szenario Wiederholungen
@@ -159,6 +160,11 @@ namespace OEScs_1
                 for (int j = 0; j < exp.ReplicStat.Count; j++)
                 {
                     
+                }
+
+                foreach (KeyValuePair<string, double[]> pair in exp.ReplicStat)
+                {
+
                 }
             }
 
