@@ -56,11 +56,5 @@ namespace OEScs_1
             return nextEvents;
         }
 
-        /* Leert eine Liste mit Events
-        public void Clear()
-        {
-            events.Clear();
-        }*/
-
     }
 }

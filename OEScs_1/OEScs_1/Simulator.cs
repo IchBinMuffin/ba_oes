@@ -8,21 +8,25 @@ namespace OEScs_1
 {
     class Simulator
     {
+        // Attribute
         private int step;
         private double time;
         private double endTime;
         private int idCounter;
-        private Dictionary<string, double> stat;
-
         private long nextMomentDeltaT = 1L;
         private double nextEventTime = 0.0;
 
-        private Dictionary<int, Object> objects;
+        // Directionarys
+        private Dictionary<string, double> stat = new Dictionary<string, double>(); // Directionary für statistische Daten
+        private Dictionary<int, Object> objects = new Dictionary<int, Object>(); // Directionary mit allen Objekten (erreichbar durch ID)
+
+        // Klassen
         private Scenario scenario = new Scenario();
         private Model model;
         private ExperimentType experimentType;
         private EventList FEL = new EventList(); // FEL - Future Event List
 
+        // Probs (Getter)
         public Dictionary<int, Object> Objects => objects;
         public Scenario Scenario => scenario;
 
@@ -136,9 +140,32 @@ namespace OEScs_1
         { 
             this.InitializeSimulator();
 
-            if (this.model.GetComputeFinalStatistics != null) this.model.GetComputeFinalStatistics.Invoke(this);
-            
-            // TODO Funktion beenden und dann mit Arrival und Departure weitermachen
+            if (this.model.GetSetUpStatistics != null) this.model.GetSetUpStatistics.Invoke(this);
+
+            exp.ReplicStat.Clear();
+            for (int i = 0; i < this.stat.Keys.Count; i++)
+            {
+                String varName = this.stat.Keys.;
+                exp.ReplicStat.Add(varName, new double[exp.NmrOfReplications]);
+            }
+
+            // Ausführen der Experiment Szenario Wiederholungen
+            for (int i = 0; i < exp.NmrOfReplications; i++)
+            {
+                this.InitializeScenarioRun();
+                this.RunScenario();
+
+                // Speichern der Statistiken der Wiederholungen
+                for (int j = 0; j < exp.ReplicStat.Count; j++)
+                {
+                    
+                }
+            }
+
+            // Zusammenfassen aller Statistiken 
+            exp.SummaryStat.Clear();
+                
+            // TODO     Für weiteres, vorheriges beenden...
         }
 
     }
