@@ -177,7 +177,7 @@ namespace OEScs_1
                 // Ausgabe...
 
                 Dictionary<string, double> mathStats = new Dictionary<string, double>();
-                foreach (KeyValuePair<string, KeyValuePair<double[], double>> stat in collection)
+                foreach (KeyValuePair<string, Func<double[], double>> stat in collection)
                 {
                     // TODO Collection = Math Libary Klasse (fertig stellen)
                 }
