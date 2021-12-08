@@ -137,41 +137,51 @@ namespace OEScs_1
 
         // Ausführen eines simplen Experiments
         public void RunExperiment(ExperimentType exp)
-        { 
+        {
+            Dictionary<double, Dictionary<string, double>> experimentStats = new Dictionary<double, Dictionary<string, double>>();
+            Dictionary<string, Dictionary<string, double>> sumStat = new Dictionary<string, Dictionary<string, double>>();
+
             this.InitializeSimulator();
 
-            if (this.model.GetSetUpStatistics != null) this.model.GetSetUpStatistics.Invoke(this);
-
+            // Initiales Aufsetzen für Aufnahme der Statistiken der Replikationen
+            this.model.GetSetUpStatistics?.Invoke(this);
             exp.ReplicStat.Clear();
-
-
             foreach (string key in this.stat.Keys)
             {
                 exp.ReplicStat.Add(key, new double[exp.NmrOfReplications]);
             }
 
-            // Ausführen der Experiment Szenario Wiederholungen
+            // Ausführen der Experiment Szenario Replikationen
             for (int i = 0; i < exp.NmrOfReplications; i++)
             {
                 this.InitializeScenarioRun();
                 this.RunScenario();
 
-                // Speichern der Statistiken der Wiederholungen
-                for (int j = 0; j < exp.ReplicStat.Count; j++)
-                {
-                    
+                // Speichern der Statistiken der Replikationen
+                foreach (KeyValuePair<string, double[]> keyPair in exp.ReplicStat)
+                {                   
+                    double[] storeValue = keyPair.Value;
+                    storeValue[i] = this.stat[keyPair.Key];
+                    keyPair.Value.SetValue(storeValue, i);
                 }
 
-                foreach (KeyValuePair<string, double[]> pair in exp.ReplicStat)
-                {
+                // Ausgabe...
 
-                }
+                experimentStats.Add(i, new Dictionary<string, double>(this.stat));
             }
 
             // Zusammenfassen aller Statistiken 
             exp.SummaryStat.Clear();
-                
-            // TODO     Für weiteres, vorheriges beenden...
+            foreach (KeyValuePair<string, double[]> pair in exp.ReplicStat)
+            {
+                // Ausgabe...
+
+                Dictionary<string, double> mathStats = new Dictionary<string, double>();
+                foreach (KeyValuePair<string, KeyValuePair<double[], double>> stat in collection)
+                {
+                    // TODO Collection = Math Libary Klasse (fertig stellen)
+                }
+            }
         }
 
     }
