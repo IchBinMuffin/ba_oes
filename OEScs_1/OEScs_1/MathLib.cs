@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace OEScs_1
 {
-    class MathLib
-    {
-        private Dictionary<string, Func<double[], double>> summary = initSummaryDict();
+	class MathLib
+	{
+		private Dictionary<string, Func<double[], double>> summary = initSummaryDict();
 
 		private static Dictionary<String, Func<double[], double>> initSummaryDict()
 		{
@@ -21,6 +21,11 @@ namespace OEScs_1
 			summaryDict.Add("CI Upper", MathLib::CIupper);
 			return summaryDict;
 		}
+
+		public double average(double data)
+        {
+			return sum(data) / data.length;
+        }
 	}
 
 }
